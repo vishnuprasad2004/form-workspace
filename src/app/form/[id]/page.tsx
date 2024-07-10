@@ -6,6 +6,9 @@ import React, { useState } from "react";
 const formConfig: FormConfig = {
   name: "User Registration",
   description: "Register a new user",
+  theme: {
+    primary: "#111",
+  },
   fields: [
     {
       id: "1",
@@ -39,13 +42,34 @@ const formConfig: FormConfig = {
       options: ["Male", "Female", "Others"],
       required: true,
     },
+    {
+      id: "5",
+      name: "dob",
+      label: "Date of Birth",
+      type: "date",
+      required: true,
+    },
+    {
+      id: "6",
+      name: "terms",
+      label: "I agree to the terms and conditions",
+      type: "checkbox",
+      required: true,
+    },
+    {
+      id: "7",
+      name: "feedback",
+      label: "Feedback",
+      type: "range",
+      required: true,
+    }
   ]
 };
 
 export default function Form({ params }:any) {
 
   return (
-    <div className="flex justify-center w-full">
+    <div className={`flex justify-center w-full h-screen`} style={{backgroundColor: formConfig.theme.primary, color: formConfig.theme?.primary}}>
       <DynamicForm key={1} config={formConfig} onSubmit={() => {}} />
     </div>
   )
