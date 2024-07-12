@@ -4,7 +4,7 @@ export interface FormField {
     id: string;
     name: string;
     label: string;
-    type: "text" | "password" | "email" | "dropdown" | "checkbox" | "radio" | "textarea" | "number" | "date" | "select" | "range";
+    type: "text" | "password" | "email" | "checkbox" | "radio" | "textarea" | "number" | "date" | "select" | "range";
     placeholder?: string;
     required: boolean;
     options?: string[]; // for select, checkboxes and radio types

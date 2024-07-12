@@ -56,7 +56,8 @@ const DynamicForm:React.FC<FormProps> = ({ config, onSubmit }) => {
                     }
 
                     if(field.type === "checkbox") {
-                        return (<>
+                        return (
+                        <div className="w-96 text-xl p-2 pt-0 rounded-xl bg-neutral-200/50 duration-150">
                             <label htmlFor={field.name}>{field.label}</label>
                             {field.options?.map((option: string) => {
                                 return (
@@ -67,7 +68,8 @@ const DynamicForm:React.FC<FormProps> = ({ config, onSubmit }) => {
                                 )
                             })}
                             <br/>
-                        </>)
+                        </div>
+                        )
                     }
 
                     if(field.type === "range") {
@@ -101,12 +103,52 @@ const DynamicForm:React.FC<FormProps> = ({ config, onSubmit }) => {
                                     primaryColor={primaryColor}
                                />
                             </>
-                        
                         )
+                    }
 
+                    if(field.type === "textarea") {
+                        return (
+                            <>
+                                <div className="w-96 text-xl p-2 pt-0 rounded-xl bg-neutral-200/50 duration-150">
+                                    <label htmlFor={field.name}>{field.label}</label>
+                                    <br/>
+                                    <textarea 
+                                        key={field.id} 
+                                        name={field.name} 
+                                        required={field.required} 
+                                        placeholder={field.placeholder || ""} 
+                                        className={`bg-transparent outline-none pl-2 pr-2 p-1 border-b-2 ${primaryColor}`}
+                                    />
+                                </div>
+                            </>
+                        )
                     }
 
 
+                    if(field.type === "select") {
+                        return (
+                            <div className="w-96 text-xl p-2 pt-0 rounded-xl bg-neutral-200/50 duration-150">
+                                <label htmlFor={field.name}>{field.label}</label>
+                                <select name={field.name} required={field.required} className="rounded-md">
+                                    {field.options?.map((option: string) => {
+                                        return (
+                                            <option key={option} value={option}>{option}</option>
+                                        )
+                                    })}
+                                </select>
+                            </div>
+                        )
+                    }
+
+                    if(field.type === "date") {
+                        return (
+                            <div className="w-96 text-xl p-2 pt-0 rounded-xl bg-neutral-200/50 duration-150">
+                                <label htmlFor={field.name}>{field.label}</label>
+                                <input type="date" name={field.name} required={field.required}/>
+                            </div>
+                        )
+
+                    }
                     
                 })}
 

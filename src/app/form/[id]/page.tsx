@@ -1,5 +1,5 @@
 "use client";
-import DynamicForm from "@/components/DynamicForm";
+import DynamicForm from "@/myComponents/DynamicForm";
 import { FormConfig } from "@/lib/form.interfaces";
 import React, { useState } from "react";
 
@@ -43,6 +43,13 @@ const formConfig: FormConfig = {
       required: true,
     },
     {
+      id: "10",
+      name: "address",
+      label: "Address",
+      type: "textarea",
+      required: true,
+    },
+    {
       id: "5",
       name: "dob",
       label: "Date of Birth",
@@ -54,6 +61,15 @@ const formConfig: FormConfig = {
       name: "terms",
       label: "I agree to the terms and conditions",
       type: "checkbox",
+      options:["I agree"],
+      required: true,
+    },
+    {
+      id: "8",
+      name: "department",
+      label: "Department",
+      type: "select",
+      options: ["CSE", "ECE", "EEE", "MECH", "CIVIL"],
       required: true,
     },
     {
@@ -62,6 +78,8 @@ const formConfig: FormConfig = {
       label: "Feedback",
       type: "range",
       required: true,
+      min:0,
+      max:5
     }
   ]
 };
