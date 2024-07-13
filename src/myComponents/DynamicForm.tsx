@@ -5,6 +5,8 @@ import TextField from "./TextField";
 import RangeSlider from "./RangeSlider";
 import RadioField from "./RadioField";
 
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
 interface FormProps {
     config: FormConfig;
     onSubmit: (formData: Record<string, any>) => void;
@@ -109,7 +111,7 @@ const DynamicForm:React.FC<FormProps> = ({ config, onSubmit }) => {
                     if(field.type === "textarea") {
                         return (
                             <>
-                                <div className="w-96 text-xl p-2 pt-0 rounded-xl bg-neutral-200/50 duration-150">
+                                {/* <div className="w-96 text-xl p-2 pt-0 rounded-xl bg-neutral-200/50 duration-150">
                                     <label htmlFor={field.name}>{field.label}</label>
                                     <br/>
                                     <textarea 
@@ -119,7 +121,9 @@ const DynamicForm:React.FC<FormProps> = ({ config, onSubmit }) => {
                                         placeholder={field.placeholder || ""} 
                                         className={`bg-transparent outline-none pl-2 pr-2 p-1 border-b-2 ${primaryColor}`}
                                     />
-                                </div>
+                                </div> */}
+
+
                             </>
                         )
                     }
@@ -127,16 +131,26 @@ const DynamicForm:React.FC<FormProps> = ({ config, onSubmit }) => {
 
                     if(field.type === "select") {
                         return (
-                            <div className="w-96 text-xl p-2 pt-0 rounded-xl bg-neutral-200/50 duration-150">
-                                <label htmlFor={field.name}>{field.label}</label>
-                                <select name={field.name} required={field.required} className="rounded-md">
-                                    {field.options?.map((option: string) => {
-                                        return (
-                                            <option key={option} value={option}>{option}</option>
-                                        )
+                            // <div className="w-96 text-xl p-2 pt-0 rounded-xl bg-neutral-200/50 duration-150">
+                            //     <label htmlFor={field.name}>{field.label}</label>
+                            //     <select name={field.name} required={field.required} className="rounded-md">
+                            //         {field.options?.map((option: string) => {
+                            //             return (
+                            //                 <option key={option} value={option}>{option}</option>
+                            //             )
+                            //         })}
+                            //     </select>
+                            // </div>
+                            <Select>
+                                <SelectTrigger className="w-[580px]">
+                                    <SelectValue placeholder={field.label} />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    {field.options.map((option) => {
+                                        return (<SelectItem value={option}>{option}</SelectItem>)
                                     })}
-                                </select>
-                            </div>
+                                </SelectContent>
+                            </Select>
                         )
                     }
 
