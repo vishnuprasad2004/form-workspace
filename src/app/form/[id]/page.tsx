@@ -1,7 +1,8 @@
 "use client";
 import DynamicForm from "@/myComponents/DynamicForm";
 import { FormConfig } from "@/lib/form.interfaces";
-import React, { useState } from "react";
+import React from "react";
+import FormBuilder from "@/myComponents/FormBuilder";
 
 const formConfig: FormConfig = {
   name: "User Registration",
@@ -16,6 +17,7 @@ const formConfig: FormConfig = {
       label: "Name",
       type: "text",
       placeholder: "Enter your name",
+      description: "Please enter your full name",
       required: true,
     },
     {
@@ -24,6 +26,7 @@ const formConfig: FormConfig = {
       label: "Email",
       type: "email",
       placeholder: "Enter your email address",
+      description: "Please enter your email address",
       required: true,
     },
     {
@@ -32,6 +35,7 @@ const formConfig: FormConfig = {
       label: "Password",
       type: "password",
       placeholder: "Enter your password",
+      description: "Please enter a secure password",
       required: true,
     },
     {
@@ -47,6 +51,7 @@ const formConfig: FormConfig = {
       name: "address",
       label: "Address",
       type: "textarea",
+      description: "Enter your permanent address",
       required: true,
     },
     {
@@ -54,6 +59,14 @@ const formConfig: FormConfig = {
       name: "dob",
       label: "Date of Birth",
       type: "date",
+      required: true,
+    },
+    {
+      id: "9",
+      name: "skills",
+      label: "Skills",
+      type: "checkbox",
+      options: ["React", "Angular", "Vue", "Svelte"],
       required: true,
     },
     {
@@ -87,8 +100,9 @@ const formConfig: FormConfig = {
 export default function Form({ params }:any) {
 
   return (
-    <div className={`flex justify-center w-full h-screen`} style={{backgroundColor: formConfig.theme.primary, color: formConfig.theme?.primary}}>
-      <DynamicForm key={1} config={formConfig} onSubmit={() => {}} />
+    <div className={`flex justify-center w-full max-h-full min-h-screen`} style={{backgroundColor: formConfig.theme.primary, color: formConfig.theme?.primary}}>
+      {/* <DynamicForm key={1} config={formConfig} onSubmit={() => {}} /> */}
+      <FormBuilder config={formConfig} />
     </div>
   )
 }

@@ -6,6 +6,7 @@ export interface FormField {
     label: string;
     type: "text" | "password" | "email" | "checkbox" | "radio" | "textarea" | "number" | "date" | "select" | "range";
     placeholder?: string;
+    description?: string;
     required: boolean;
     options?: string[]; // for select, checkboxes and radio types
     // min and max values are for range input type
