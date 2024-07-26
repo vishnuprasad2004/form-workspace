@@ -2,9 +2,10 @@
 import DynamicForm from "@/myComponents/DynamicForm";
 import { FormConfig } from "@/lib/form.interfaces";
 import React from "react";
-import FormBuilder from "@/myComponents/FormBuilder";
+import FormBuilder from "@/components/FormBuilder";
 
 const formConfig: FormConfig = {
+  id: 1234567,
   name: "User Registration",
   description: "Register a new user",
   theme: {
@@ -51,6 +52,7 @@ const formConfig: FormConfig = {
       name: "address",
       label: "Address",
       type: "textarea",
+      placeholder: "Some address blah, blah, blah ...",
       description: "Enter your permanent address",
       required: true,
     },

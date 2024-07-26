@@ -16,6 +16,7 @@ export interface FormField {
 
 // form configuration interface
 export interface FormConfig {
+    id: number,
     name: String;
     description: String;
     theme?: {
