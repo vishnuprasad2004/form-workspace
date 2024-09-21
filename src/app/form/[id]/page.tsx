@@ -7,7 +7,11 @@ import FormBuilder from "@/components/FormBuilder";
 const formConfig: FormConfig = {
   id: 1234567,
   name: "User Registration",
-  description: "Register a new user",
+  description: `This conference registration form is a comprehensive tool designed to streamline the process of registering attendees for various events and sessions. At the outset, the form collects essential personal information from the registrant, including their full name, email address, and phone number. This information is crucial for maintaining accurate records and ensuring effective communication with the participants.
+        Following the personal details section, the form delves into specifics about the event. 
+        Attendees can select the event they wish to attend from a dropdown menu, which includes options such as the Annual Tech Conference, Startup Pitch Night, Networking Gala, and Coding Bootcamp. This allows organizers to manage multiple events efficiently and ensures that participants register for the correct event. Additionally, registrants can indicate their preferred session time using radio buttons, offering choices like Morning (9 AM - 12 PM), Afternoon (1 PM - 4 PM), and Evening (5 PM - 8 PM). 
+        This flexibility accommodates various schedules and maximizes attendance.`,
+  createdAt: new Date(),
   theme: {
     primary: "#111",
   },

@@ -19,6 +19,7 @@ export interface FormConfig {
     id: number,
     name: String;
     description: String;
+    createdAt: Date;
     theme?: {
         primary: string;
     };
